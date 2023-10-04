@@ -17,7 +17,7 @@ function Contact(props) {
                 <input className="input" type="text" onChange={handleChangeNameValue} value={nameValue}/>
                 <input className="input" type="text" onChange={handleChangeNumberValue} value={numberValue}/>
             </div>
-            <button className="deleteBtn" onClick={() => props.handleDeleteContact(props.contact.id)}>Delete</button>
+            <button className="deleteBtn" onClick={() => props.handleDeleteContact(props.id)}>Delete</button>
         </div>
     );
 }

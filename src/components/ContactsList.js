@@ -6,7 +6,7 @@ function ContactsList(props) {
     const contactsList = [
         {
             id: Math.random(),
-            name: "New Contact",
+            name: "Contact",
             number: "555-555-5555"
         },
         {
@@ -20,16 +20,16 @@ function ContactsList(props) {
 
 
     const handleAddContact = () => {
-        setContacts([...contacts,
-            {
-                id: Math.random(),
-                name: "New Contact",
-                number: "555-555-5555"
-            }])
+        setContacts([{
+            id: Math.random(),
+            name: "New Contact",
+            number: "555-555-5555"
+        }, ...contacts])
     }
 
     const handleSortByName = () => {
-        setContacts(contacts.sort((firstValue, secondValue ) => firstValue.name.localeCompare(secondValue.name)))
+        const sortedContacts = contacts.sort((firstValue, secondValue ) => firstValue.name.localeCompare(secondValue.name))
+        setContacts(sortedContacts)
     }
 
 
@@ -46,7 +46,7 @@ function ContactsList(props) {
             </div>
             <div className={"contacts"}>
                 {contacts.map((contact) =>
-                    <Contact id={contact.id} contact={contact} handleDeleteContact={handleDeleteContact}/>
+                    <Contact key={contact.id} id={contact.id} contact={contact} handleDeleteContact={handleDeleteContact}/>
                 )}
             </div>
         </div>
